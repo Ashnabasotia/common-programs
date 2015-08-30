@@ -42,8 +42,6 @@ void reverseTraversal(map <pair<int,int>,pair<int,int> > parent,pair<int,int> in
     reverseTraversal(parent,parent[initialState],goalState);
   }
   cout<<"("<<initialState.first<<","<<initialState.second<<")"<<endl;
-  if(checkGoal(initialState,2))
-    cout<<"_____________"<<endl;
 }
 
 int main()
@@ -61,10 +59,8 @@ int main()
   while(Q.empty()!=true){
     parNode=Q.front();
     Q.pop();
-    if(checkGoal(parNode,2)){
-      reverseTraversal(parent,parNode,make_pair(0,0));
-      continue;
-    }
+    if(checkGoal(parNode,2))
+      break;
     occured[parNode]++;
     vector <pair<int,int> > leafs = newStatesSet(parNode);
     for(int i=0;i<leafs.size();i++){
@@ -73,5 +69,7 @@ int main()
         parent[leafs[i]]=parNode;
       }
     }
-  } 
+  }
+  reverseTraversal(parent,parNode,make_pair(0,0));
+    
 }
