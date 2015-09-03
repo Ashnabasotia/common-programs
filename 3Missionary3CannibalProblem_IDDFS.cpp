@@ -1,6 +1,11 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+/*
+SOLUTION TO 3 CANNIBAL and 3 MISSIONARIES PROBLEM 
+USING ITERATIVE DEEPENING DEPTH FIRST SEARCH
+https://en.wikipedia.org/wiki/Missionaries_and_cannibals_problem
+*/
 
 //state initial state (0,3,3) Side Of the Boat 0->Right/1 /Cannibal/Missionary on right hand side 
 vector < pair < int, pair<int,int> > > newStatesSet(pair< int, pair < int, int > > state){
@@ -106,12 +111,10 @@ void iterativeDeepeningSearch(pair<int, pair<int, int> > source, pair<int, pair<
       break;
     }
   }
-  
+  cout<<"C and M represents cannibals and Missionaries \n respectively and B represents the location of boat\n";
   displayState(source);
-  for(int i=ans.size()-1; i>=0; i--){
-  //  cout<<"("<<ans[i].first<<","<<ans[i].second.first<<", "<<ans[i].second.second<<")\n";
+  for(int i=ans.size()-1; i>=0; i--)
     displayState(ans[i]);
-  }
 }
 
 int main()
@@ -119,13 +122,4 @@ int main()
   pair<int, pair<int, int> > source = make_pair(0,make_pair(3, 3 ));
   pair<int, pair<int, int> > goal   = make_pair(1,make_pair(0, 0 ));
   iterativeDeepeningSearch(source,goal);
-  
-  /*for (int j=1;j<5;j++){
-    int a,b,c;
-    cin>>a>>b>>c;
-
-    vector <pair<int, pair<int,int> > > V = newStatesSet(make_pair(a,make_pair(b,c)));
-    for(int i=0 ; i<V.size(); i++)
-      cout<<V[i].first<<",  "<<V[i].second.first<<", "<<V[i].second.second<<endl;
-  }//*/
 }
