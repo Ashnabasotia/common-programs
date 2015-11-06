@@ -3,6 +3,7 @@ import os
 
 #program to generate random test cases
 #and find the failed test case of the solution using brute force solution
+#useful in programming competetions and sport programming events 
 
 
 #generate random test cases 
