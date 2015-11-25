@@ -292,14 +292,15 @@ int valleys(std::vector<int> vec){
 // the actual generation of evaluation function value takes place here
 double analyze(vector<int> v){
 	std::vector<int> hgh(15);
-
-	double hole_      = holes(v)*-0.35663; //Holes   Count : SELF
-	double avgHeight  = height(v,hgh,0)*-0.510066; //Average Height  
-  double completeL  = completeLines(v)*0.760666; //Complete Lines
-  double Valleys    = 1; //Valleys Count : counts of creeks that are deeper than 3 cells 
-	double bumps      = Bumps(hgh,0)*-0.184483;//Bumps : sudden changes on the top layer of board more than one is taken as bump
-	double randomness = (rand()%500)/500.0-0.2;
-	return hole_+avgHeight+completeL+bumps+randomness;
+    
+    double hole_    = holes(v)*-0.952;        //Holes   Count : SELF
+    double avgHeight= height(v,hgh,0)*-0.131; //Average Height  
+    double completeL= completeLines(v)*0.832; //Complete Lines
+    double Valleys  = 1; //Valleys Count : counts of creeks that are deeper than 3 cells 
+    double bumps    = Bumps(hgh,0)*-0.14;//Bumps : sudden changes on the top layer of board more than one is taken as bump
+    double randomness = (rand()%500)/800.0;
+    return hole_+avgHeight+completeL+bumps+randomness;
+    
 	//Distribution : how much pieces are distributed across the board
 }
 
